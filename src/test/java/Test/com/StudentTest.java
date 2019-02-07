@@ -6,6 +6,7 @@
 package Test.com;
 
 import com.itexps.testpackage.mytestng.Student;
+import com.itexps.testpackage.mytestng.Teacher;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,7 @@ import org.testng.annotations.Test;
 public class StudentTest {
     
     Student stu;
+    Teacher thr;
     
     public StudentTest() {
     }
@@ -30,6 +32,14 @@ public class StudentTest {
         assertEquals("Tom", stu.getFirst());
         assertEquals("Patel", stu.getLast());
      }
+     
+     @Test
+     public void testTeacher(){
+         thr.setFirst("roma");
+         thr.setLast("Smith");
+         assertEquals("roma", thr.getFirst());
+         assertEquals("Smith", thr.getLast());
+     }
 
     @org.testng.annotations.BeforeClass
     public static void setUpClass() throws Exception {
@@ -42,6 +52,7 @@ public class StudentTest {
     @org.testng.annotations.BeforeMethod
     public void setUpMethod() throws Exception {
         stu=new Student();
+        thr=new Teacher();
     }
 
     @org.testng.annotations.AfterMethod
